@@ -91,7 +91,6 @@ func MapExec(task *Task, mapf func(string, string) []KeyValue) error {
 		if err != nil {
 			return fmt.Errorf("Open tmp file error: %w", err)
 		}
-		defer file.Close()
 
 		enc := json.NewEncoder(file)
 		for _, kv := range intermediate[bucket] {
